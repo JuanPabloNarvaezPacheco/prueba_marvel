@@ -1,0 +1,17 @@
+plugins {
+  id 'java-library'
+  id 'kotlin'
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+
+  def testGradle = rootProject.ext.test
+  def kotlinGradle = rootProject.ext.kotlin
+  implementation kotlinGradle.values()
+  testImplementation testGradle.values()
+}

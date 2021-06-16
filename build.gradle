@@ -1,0 +1,108 @@
+buildscript {
+
+  ext {
+    kotlin_version = '1.5.10'
+    coroutine_version = '1.5.0'
+
+    ktx_core_version = '1.6.0-beta02'
+    navigation_version = '2.3.5'
+    room_version = '2.3.0'
+    lifecycle_version = '2.2.0'
+    constraint_version = '2.1.0-beta01'
+
+    material_version = '1.4.0-rc01'
+
+    retrofit_version = '2.9.0'
+    dagger_version = '2.37'
+    glide_version = '4.12.0'
+    moshi_version = '1.12.0'
+
+    junit_version = '4.13.2'
+    junit_ext_version = '1.1.2'
+    mockito_kotlin_version = '2.2.0'
+    mockito_inline_version = '3.11.0'
+    coroutines_test_version = '1.5.0'
+    arch_test_version = '2.1.0'
+
+    kotlin = [
+        kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+        coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    ]
+
+    material = [material: "com.google.android.material:material:$material_version"]
+
+    jetpack = [
+        //core
+        ktx                 : "androidx.core:core-ktx:$ktx_core_version",
+
+        //navigation
+        navigation_fragment : "androidx.navigation:navigation-fragment-ktx:$navigation_version",
+        navigation_ui       : "androidx.navigation:navigation-ui-ktx:$navigation_version",
+        navigation_dynamic  : "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version",
+
+        //room
+        room                : "androidx.room:room-runtime:$room_version",
+        room_ktx            : "androidx.room:room-ktx:$room_version",
+
+        //livedata
+        viewmodel           : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+        livedata            : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+        runtime             : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+        lifecycle_extensions: "androidx.lifecycle:lifecycle-extensions:$lifecycle_version",
+
+        //components
+        constraint          : "androidx.constraintlayout:constraintlayout:$constraint_version",
+    ]
+
+    third_parties = [
+        retrofit       : "com.squareup.retrofit2:retrofit:$retrofit_version",
+        retrofit_scalar: "com.squareup.retrofit2:converter-scalars:$retrofit_version",
+        glide          : "com.github.bumptech.glide:glide:$glide_version",
+        moshi          : "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    ]
+
+    kapt_compiler = [
+        dagger_compiler: "com.google.dagger:dagger-compiler:$dagger_version",
+        glide_compiler : "com.github.bumptech.glide:compiler:$glide_version",
+        room_compiler  : "androidx.room:room-compiler:$room_version",
+        moshi_compiler : "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version",
+    ]
+
+    dependency_injection = [
+        dagger: "com.google.dagger:dagger:$dagger_version"
+    ]
+
+    test = [
+        junit         : "junit:junit:$junit_version",
+        junit_ext     : "androidx.test.ext:junit:$junit_ext_version",
+        mockito_kotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin_version",
+        mockito_inline: "org.mockito:mockito-inline:$mockito_inline_version"
+    ]
+
+    android_test = [
+        archTest       : "androidx.arch.core:core-testing:$arch_test_version",
+        coroutines_test: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test_version",
+    ]
+  }
+
+  repositories {
+    google()
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:4.2.1'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}

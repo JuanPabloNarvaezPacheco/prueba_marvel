@@ -1,0 +1,8 @@
+<resources>
+ <string name="app_name">MarvelApp</string>
+ <string name="first_fragment_label">Heroes list</string>
+ <string name="second_fragment_label">Hero detail</string>
+
+ <string name="title_comics">Comics</string>
+ <string name="title_stories">Stories</string>
+</resources>
